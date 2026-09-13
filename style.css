@@ -1,0 +1,259 @@
+:root {
+  --bg-color: #0b0e14;
+  --nav-bg: rgba(11, 14, 20, 0.85);
+  --text-primary: #e6edf3;
+  --text-muted: #8b949e;
+  --accent-cyan: #00f3ff;
+  --accent-green: #00ff66;
+  --border-color: #21262d;
+  --font-coder: 'Fira Code', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: var(--font-coder);
+  color: var(--text-primary);
+}
+
+/* Header Container */
+.navbar {
+  width: 100%;
+  background-color: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1.2rem 2rem;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left, 
+.nav-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.nav-left {
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+.nav-right {
+  justify-content: flex-end;
+  gap: 1.5rem;
+}
+
+.nav-center {
+  text-align: center;
+}
+
+.nav-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.code-bracket {
+  color: var(--accent-cyan);
+  opacity: 0.5;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+}
+
+.nav-link:hover .code-bracket {
+  opacity: 1;
+  color: var(--accent-green);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -6px;
+  left: 0;
+  background-color: var(--accent-cyan);
+  box-shadow: 0 0 8px var(--accent-cyan);
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.heading-title {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  display: inline-block;
+}
+
+.social-icon {
+  color: var(--text-muted);
+  font-size: 1.25rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: all 0.25s ease;
+}
+
+.social-icon:hover {
+  color: var(--accent-cyan);
+  border-color: var(--border-color);
+  background-color: rgba(255, 255, 255, 0.03);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 243, 255, 0.15);
+}
+
+/* Main Layout */
+.main-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* Split Card Showcase */
+.game-section {
+  display: flex;
+  background-color: rgba(33, 38, 45, 0.3);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  transition: border-color 0.3s ease;
+  margin-top: 2%;
+}
+
+.game-section:hover {
+  border-color: rgba(0, 243, 255, 0.3);
+}
+
+/* Left Image Column */
+.game-cover {
+  flex: 1;
+  min-height: 350px;
+  background-color: #05070a;
+}
+
+.game-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Right Details Column */
+.game-info {
+  flex: 1;
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.project-type {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-green);
+  letter-spacing: 1.5px;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.project-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 1.5px;
+  margin-bottom: 1.25rem;
+}
+
+.project-description {
+  color: lightgray;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* Action Button */
+.itch-link-div {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.itch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: transparent;
+  color: var(--accent-cyan);
+  border: 1.5px solid var(--accent-cyan);
+  padding: 0.85rem 1.8rem;
+  font-family: var(--font-coder);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 12px rgba(0, 243, 255, 0.08);
+}
+
+.itch-btn i {
+  font-size: 1.3rem;
+}
+
+.itch-btn:hover {
+  background-color: var(--accent-cyan);
+  color: var(--bg-color);
+  box-shadow: 0 0 24px rgba(0, 243, 255, 0.4);
+}
+
+/* Responsive collapse for mobile/tablet screens */
+@media (max-width: 850px) {
+  .game-card {
+    flex-direction: column;
+  }
+
+  .game-cover {
+    min-height: 250px;
+    max-height: 350px;
+  }
+
+  .game-info {
+    padding: 2rem 1.5rem;
+  }
+}
