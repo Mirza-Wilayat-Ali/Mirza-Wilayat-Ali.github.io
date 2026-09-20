@@ -52,38 +52,35 @@
 
     <!-- HOME SECTION -->
     <section id="section-home" class="tab-section">
-      <article class="article-home">
-        <div class="profile-info">
-          <p class="profile-info-description">
-            Hi,<br>My name is Wilayat and I develop games
-          </p>
-        </div>
-        <div class="home-cover-img">
-          <img src="headshot.png" alt="Profile Photo">
-        </div>
-      </article>
-
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      <hr>
-      <br><br><br><br><br><br><br><br><br><br><br>
       
+      <!-- Autoplay Video Banner -->
+      <div class="hero-video-wrapper">
+        <video class="hero-video" autoplay muted loop playsinline preload="auto">
+          <source src="B-Roll-Games.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- About Me Card -->
       <article>
         <div class="about-card">
-        <h2 class="about-heading">
-          About Me
-        </h2>
-        <p class="about-me-role">
-          GAME DEVELOPER
-        </p>
-        <p class="about-description">
-          Passionate game developer focusing on 2D/3D physics mechanics, interactive gameplay loops, and immersive user interfaces. Experienced in crafting capstone gaming projects, university educational simulations, and creative WebGL/HTML5 projects.
-        </p>
-      </div>
+          <!-- Centered Round Profile Photo -->
+          <div class="about-profile-img">
+            <img src="headshot.png" alt="Profile Photo">
+          </div>
+          <h2 class="about-heading">
+            ABOUT ME
+          </h2>
+          <p class="about-me-role">
+            GAME DEVELOPER
+          </p>
+          <p class="about-description">
+            Passionate game developer focusing on 2D/3D physics mechanics, interactive gameplay loops, and immersive user interfaces. Experienced in crafting capstone gaming projects, university educational simulations, and creative WebGL/HTML5 projects.
+          </p>
+        </div>
       </article>
     </section>
 
     <!-- WORK SECTION -->
-     
     <section id="section-work" class="tab-section" style="display: none;">
       
       <!-- Game 1 -->
@@ -144,7 +141,6 @@
         </div>
       </article>
 
-
       <!-- Game 2 -->
       <article class="game-section">
         <div class="game-cover">
@@ -196,7 +192,6 @@
           </div>
         </div>
       </article>
-
 
       <!-- Game 3 -->
       <article class="game-section">
@@ -355,10 +350,7 @@
     function positionHighlight(targetBtn) {
       if (!targetBtn) return;
       
-      // Calculate offset inside wrapper relative to padding
       const btnLeft = targetBtn.offsetLeft;
-      
-      // Slide active capsule container horizontally exactly over active tab
       navHighlight.style.transform = `translateX(${btnLeft}px)`;
     }
 
@@ -375,7 +367,6 @@
       document.getElementById(`section-${tabId}`).style.display = 'block';
     }
 
-    // Initialize initial position on page load & resize
     window.addEventListener('load', () => {
       const initialBtn = document.querySelector('.nav-btn.active');
       positionHighlight(initialBtn);
@@ -386,11 +377,9 @@
       positionHighlight(activeBtn);
     });
 
-
     function changeSlide(btn, direction) {
       const container = btn.closest('.game-cover');
       const slides = container.querySelectorAll('.slide');
-      const dots = container.querySelectorAll('.dot');
       if (!slides.length) return;
 
       let currentIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
