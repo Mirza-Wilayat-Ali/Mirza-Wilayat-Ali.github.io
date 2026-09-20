@@ -252,8 +252,8 @@ font-size: 0.9rem;
 .about-description {
 font-family: "Google Sans Flex", sans-serif;
 line-height: 1.7;
-color: var(--text-main);
 text-align: center;
+margin: 0 3rem;
 }
 
 /* Work Section Styling */
