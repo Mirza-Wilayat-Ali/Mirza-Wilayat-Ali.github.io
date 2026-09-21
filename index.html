@@ -18,35 +18,83 @@
 <body>
 
   <header class="header-nav">
-    <div class="header-container">
-      
-      <div class="brand-group">
-        <h1 class="brand-name">Mirza Wilayat Ali</h1>
-        <span class="brand-role">Game Developer</span>
-      </div>
-
-      <nav class="nav-pill-wrapper" id="nav-pill">
-        <div id="nav-highlight" class="nav-active-highlight"></div>
-
-        <button class="nav-btn active" onclick="setActiveTab('home', this)">HOME</button>
-        <button class="nav-btn" onclick="setActiveTab('work', this)">WORK</button>
-        <button class="nav-btn" onclick="setActiveTab('contact', this)">CONTACT</button>
-      </nav>
-
-      <div class="right-links">
-        <a href="https://www.linkedin.com/in/mirza-wilayat-ali-5700a8350/" target="_blank" rel="noopener" class="ext-link">
-          LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
-        <a href="https://github.com/MirzaWilayatAli?tab=repositories" target="_blank" rel="noopener" class="ext-link">
-          GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
-        <a href="https://mirza-wilayat-ali.itch.io/" target="_blank" rel="noopener" class="ext-link">
-          Itch <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
-      </div>
-
+  <div class="header-container">
+    
+    <div class="brand-group">
+      <h1 class="brand-name">Mirza Wilayat Ali</h1>
+      <span class="brand-role">Game Developer</span>
     </div>
-  </header>
+
+    <!-- Desktop Pill Navbar (Hidden on Mobile) -->
+    <nav class="nav-pill-wrapper" id="nav-pill">
+      <div id="nav-highlight" class="nav-active-highlight"></div>
+      <button class="nav-btn active" onclick="setActiveTab('home', this)">HOME</button>
+      <button class="nav-btn" onclick="setActiveTab('work', this)">WORK</button>
+      <button class="nav-btn" onclick="setActiveTab('contact', this)">CONTACT</button>
+    </nav>
+
+    <!-- Desktop External Links (Hidden on Mobile) -->
+    <div class="right-links">
+      <a href="https://www.linkedin.com/in/mirza-wilayat-ali-5700a8350/" target="_blank" rel="noopener" class="ext-link">
+        LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+      <a href="https://github.com/MirzaWilayatAli?tab=repositories" target="_blank" rel="noopener" class="ext-link">
+        GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+      <a href="https://mirza-wilayat-ali.itch.io/" target="_blank" rel="noopener" class="ext-link">
+        Itch <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+    </div>
+
+    <!-- Hamburger Toggle Button (Shown on Mobile) -->
+    <button class="hamburger-btn" id="hamburger-btn" onclick="toggleMobileMenu(true)" aria-label="Open Navigation Menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+  </div>
+</header>
+
+<!-- Backdrop Overlay for Side Panel -->
+<div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleMobileMenu(false)"></div>
+
+<!-- Mobile Side Panel Drawer -->
+<aside class="mobile-sidebar" id="mobile-sidebar">
+  <div class="sidebar-header">
+    <div class="brand-group">
+      <span class="brand-name">Mirza Wilayat Ali</span>
+      <span class="brand-role">Game Developer</span>
+    </div>
+    <button class="close-sidebar-btn" onclick="toggleMobileMenu(false)" aria-label="Close Navigation Menu">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <nav class="sidebar-nav">
+    <button class="sidebar-btn active" onclick="handleMobileNav('home')">
+      <i class="fa-solid fa-house"></i> HOME
+    </button>
+    <button class="sidebar-btn" onclick="handleMobileNav('work')">
+      <i class="fa-solid fa-gamepad"></i> WORK
+    </button>
+    <button class="sidebar-btn" onclick="handleMobileNav('contact')">
+      <i class="fa-solid fa-envelope"></i> CONTACT
+    </button>
+
+    <hr class="sidebar-divider">
+
+    <div class="sidebar-ext-links">
+      <a href="https://www.linkedin.com/in/mirza-wilayat-ali-5700a8350/" target="_blank" rel="noopener" class="ext-link">
+        </i> LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+      <a href="https://github.com/MirzaWilayatAli?tab=repositories" target="_blank" rel="noopener" class="ext-link">
+        </i> GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+      <a href="https://mirza-wilayat-ali.itch.io/" target="_blank" rel="noopener" class="ext-link">
+        </i> Itch.io <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+    </div>
+  </nav>
+</aside>
 
   <main class="main-container">
 
@@ -401,6 +449,52 @@
         dot.classList.toggle('active', i === index);
       });
     }
+
+    // Toggle Mobile Side Drawer
+function toggleMobileMenu(isOpen) {
+  const sidebar = document.getElementById('mobile-sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+
+  if (isOpen) {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when open
+  } else {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+// Handle Navigation from Mobile Drawer
+function handleMobileNav(tabId) {
+  // Sync Desktop Pill Highlight & Tab Switch
+  const desktopBtns = document.querySelectorAll('.nav-btn');
+  let matchedDesktopBtn = null;
+
+  desktopBtns.forEach(btn => {
+    if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(`'${tabId}'`)) {
+      matchedDesktopBtn = btn;
+    }
+  });
+
+  if (matchedDesktopBtn) {
+    setActiveTab(tabId, matchedDesktopBtn);
+  }
+
+  // Update active state in Mobile Sidebar
+  const sidebarBtns = document.querySelectorAll('.sidebar-btn');
+  sidebarBtns.forEach(btn => {
+    if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(`'${tabId}'`)) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+
+  // Close Side Panel
+  toggleMobileMenu(false);
+}
   </script>
 </body>
 </html>

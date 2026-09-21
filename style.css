@@ -171,6 +171,144 @@ color: #ffffff;
 transform: translate(2px, -2px);
 }
 
+/* ==========================================
+MOBILE SIDE PANEL & HAMBURGER STYLES
+========================================== */
+
+/* Hide Mobile Elements by Default on Desktop */
+.hamburger-btn {
+display: none;
+background: transparent;
+border: none;
+color: darkgray;
+font-size: 1.5rem;
+cursor: pointer;
+padding: 0.5rem;
+transition: color 0.25s ease;
+}
+
+.hamburger-btn:hover {
+color: white;
+}
+
+/* Dark Backdrop Overlay */
+.sidebar-overlay {
+position: fixed;
+inset: 0;
+background: rgba(0, 0, 0, 0.7);
+backdrop-filter: blur(4px);
+-webkit-backdrop-filter: blur(4px);
+z-index: 998;
+opacity: 0;
+pointer-events: none;
+transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.active {
+opacity: 1;
+pointer-events: auto;
+}
+
+/* Sliding Side Drawer Panel */
+.mobile-sidebar {
+position: fixed;
+top: 0;
+right: 0;
+width: 290px;
+max-width: 82vw;
+height: 100vh;
+background: #121418;
+border-left: 1px solid rgba(255, 255, 255, 0.1);
+box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
+z-index: 999;
+transform: translateX(100%);
+transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+display: flex;
+flex-direction: column;
+padding: 1.5rem;
+overflow-y: auto;
+}
+
+.mobile-sidebar.open {
+transform: translateX(0);
+}
+
+.sidebar-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding-bottom: 1.25rem;
+border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+margin-bottom: 1.5rem;
+font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.close-sidebar-btn {
+background: transparent;
+border: none;
+color: var(--text-muted);
+font-size: 1.4rem;
+cursor: pointer;
+transition: color 0.2s ease;
+}
+
+.close-sidebar-btn:hover {
+color: #ffffff;
+}
+
+.sidebar-nav {
+display: flex;
+flex-direction: column;
+gap: 0.75rem;
+}
+
+.sidebar-btn {
+background: transparent;
+border: 1px solid transparent;
+color: var(--text-muted);
+font-family: 'Fira Sans', sans-serif;
+font-size: 1rem;
+font-weight: 600;
+letter-spacing: 0.05em;
+padding: 0.8rem 1rem;
+border-radius: 10px;
+text-align: left;
+cursor: pointer;
+display: flex;
+align-items: center;
+gap: 0.75rem;
+transition: all 0.25s ease;
+}
+
+.sidebar-btn:hover {
+background: rgba(255, 255, 255, 0.05);
+color: #ffffff;
+}
+
+.sidebar-btn.active {
+background: darkgray;
+color: black;
+border-color: white;
+}
+
+.sidebar-divider {
+border: none;
+border-top: 1px solid rgba(255, 255, 255, 0.08);
+margin: 1.25rem 0;
+}
+
+.sidebar-ext-links {
+display: flex;
+flex-direction: column;
+gap: 2rem;
+padding: 0 0.5rem;
+font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.sidebar-ext-links a{
+font-size: 1rem;
+}
+
 .main-container {
 position: relative;
 z-index: 10;
@@ -533,10 +671,6 @@ font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 @media (max-width: 850px) {
-.header-container {
-flex-direction: column;
-gap: 0.75rem;
-}
 .main-container {
 padding-top: 10.5rem;
 }
@@ -551,5 +685,58 @@ min-height: 220px;
 }
 .game-info {
 padding: 2rem 1.5rem;
+}
+
+.header-container {
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+}
+
+/* Hide Desktop Nav and Links */
+.nav-pill-wrapper,
+.right-links {
+display: none !important;
+}
+
+/* Show Hamburger Icon */
+.hamburger-btn {
+display: block;
+}
+
+.main-container {
+padding-top: 6rem;
+}
+
+.hero-video-wrapper {
+width: 95%;
+height: 45vh;
+}
+
+.about-card {
+width: 95%;
+padding: 2.5rem 1.5rem;
+margin: 4rem auto;
+}
+
+.about-description {
+margin: 0;
+}
+
+.game-section {
+width: 95%;
+flex-direction: column;
+}
+
+.game-cover {
+min-height: 240px;
+}
+
+.game-info {
+padding: 2rem 1.5rem;
+}
+
+.project-title {
+font-size: 1.75rem;
 }
 }
