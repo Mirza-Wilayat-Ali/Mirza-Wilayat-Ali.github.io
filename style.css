@@ -739,4 +739,9 @@ padding: 2rem 1.5rem;
 .project-title {
 font-size: 1.75rem;
 }
+
+.itch-link-div{
+    display: block;
+    margin: 1.5rem auto 0;
+}
 }
