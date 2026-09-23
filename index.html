@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Mirza Wilayat Ali - Game Developer</title>
   
   <!-- Google Fonts: Plus Jakarta Sans & Fira Code -->
@@ -102,12 +103,13 @@
     <!-- HOME SECTION -->
     <section id="section-home" class="tab-section">
       
-      <!-- Autoplay Video Banner -->
-      <div class="hero-video-wrapper">
-        <video class="hero-video" autoplay muted loop playsinline preload="metadata">
-          <source src="B-Roll-Games.mp4" type="video/mp4">
-        </video>
-      </div>
+    <div class="hero-video-wrapper">
+      <div class="video-loader" id="videoLoader"></div>
+      <video id="myVideo" autoplay loop muted playsinline controls preload="metadata">
+        <source src="B-Roll-Games.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+    </div>
 
       <!-- About Me Card -->
       <article>
@@ -652,6 +654,17 @@
         submitBtn.disabled = false;
       }
     }
+
+      const video = document.getElementById('myVideo');
+      const loader = document.getElementById('videoLoader');
+
+      // Hide loader when the video is ready or actively playing
+      video.addEventListener('canplay', () => loader.classList.add('hidden'));
+      video.addEventListener('playing', () => loader.classList.add('hidden'));
+
+      // Show loader when video is waiting on network data or buffering mid-playback
+      video.addEventListener('waiting', () => loader.classList.remove('hidden'));
+      video.addEventListener('loadstart', () => loader.classList.remove('hidden'));
   </script>
 </body>
 </html>

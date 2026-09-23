@@ -362,6 +362,68 @@ width: 100%;
 height: 100%;
 }
 
+.hero-video-wrapper {
+aspect-ratio: 16 / 9; /* Maintains container ratio */
+position: relative;
+overflow: hidden;
+}
+
+.hero-video-wrapper video {
+width: 100%;
+height: 100%;
+object-fit: cover; /* Fills container seamlessly like a background image */
+}
+
+.video-container {
+position: relative;
+width: 100%;
+max-width: 640px;
+aspect-ratio: 16 / 9;
+background-color: #000;
+}
+
+.video-container video {
+width: 100%;
+height: 100%;
+display: block;
+}
+
+/* Throbbing Circle Loader */
+.video-loader {
+position: absolute;
+top: 50%;
+left: 50%;
+width: 60px;
+height: 60px;
+background-color: rgba(255, 255, 255, 0.85);
+border-radius: 50%;
+z-index: 10;
+pointer-events: none;
+transform: translate(-50%, -50%);
+animation: throb 1.2s infinite ease-in-out;
+}
+
+/* Pulsing Animation */
+@keyframes throb {
+0% {
+transform: translate(-50%, -50%) scale(0.5);
+opacity: 0.3;
+}
+50% {
+transform: translate(-50%, -50%) scale(1.1);
+opacity: 0.9;
+}
+100% {
+transform: translate(-50%, -50%) scale(0.5);
+opacity: 0.3;
+}
+}
+
+/* Hidden state for loader */
+.video-loader.hidden {
+display: none;
+}
+
 .about-card {
 background-color: var(--card-bg);
 border: 1px solid var(--border-subtle);
