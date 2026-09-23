@@ -20,7 +20,8 @@
   <header class="header-nav">
   <div class="header-container">
     
-    <div class="brand-group">
+    <!-- Clickable Brand Logo to return Home -->
+    <div class="brand-group clickable-brand" onclick="navigateToHome()">
       <h1 class="brand-name">Mirza Wilayat Ali</h1>
       <span class="brand-role">Game Developer</span>
     </div>
@@ -60,7 +61,7 @@
 <!-- Mobile Side Panel Drawer -->
 <aside class="mobile-sidebar" id="mobile-sidebar">
   <div class="sidebar-header">
-    <div class="brand-group">
+    <div class="brand-group clickable-brand" onclick="navigateToHome()">
       <span class="brand-name">Mirza Wilayat Ali</span>
       <span class="brand-role">Game Developer</span>
     </div>
@@ -84,13 +85,13 @@
 
     <div class="sidebar-ext-links">
       <a href="https://www.linkedin.com/in/mirza-wilayat-ali-5700a8350/" target="_blank" rel="noopener" class="ext-link">
-        </i> LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i>
       </a>
       <a href="https://github.com/MirzaWilayatAli?tab=repositories" target="_blank" rel="noopener" class="ext-link">
-        </i> GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
       </a>
       <a href="https://mirza-wilayat-ali.itch.io/" target="_blank" rel="noopener" class="ext-link">
-        </i> Itch.io <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        Itch.io <i class="fa-solid fa-arrow-up-right-from-square"></i>
       </a>
     </div>
   </nav>
@@ -103,7 +104,7 @@
       
       <!-- Autoplay Video Banner -->
       <div class="hero-video-wrapper">
-        <video class="hero-video" autoplay muted loop playsinline preload="auto">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata">
           <source src="B-Roll-Games.mp4" type="video/mp4">
         </video>
       </div>
@@ -133,215 +134,295 @@
       
       <!-- Game 1 -->
       <article class="game-section">
-        <div class="game-cover">
-          <!-- Images Slides -->
-          <img class="slide active" src="phusion1.png" alt="Phusion Preview 1">
-          <img class="slide" src="phusion2.png" alt="Phusion Preview 2">
-          <img class="slide" src="phusion3.png" alt="Phusion Preview 3">
-          <img class="slide" src="phusion4.png" alt="Phusion Preview 4">
-          <img class="slide" src="phusion5.png" alt="Phusion Preview 5">
-          <img class="slide" src="phusion6.png" alt="Phusion Preview 6">
-          <img class="slide" src="phusion7.png" alt="Phusion Preview 7">
+        <div class="game-main-content">
+          <div class="game-cover">
+            <!-- Images Slides -->
+            <img class="slide active" src="phusion1.png" alt="Phusion Preview 1">
+            <img class="slide" src="phusion2.png" alt="Phusion Preview 2">
+            <img class="slide" src="phusion3.png" alt="Phusion Preview 3">
+            <img class="slide" src="phusion4.png" alt="Phusion Preview 4">
+            <img class="slide" src="phusion5.png" alt="Phusion Preview 5">
+            <img class="slide" src="phusion6.png" alt="Phusion Preview 6">
+            <img class="slide" src="phusion7.png" alt="Phusion Preview 7">
 
-          <!-- Left and Right Navigation Buttons -->
-          <button class="slide-btn prev-btn" onclick="changeSlide(this, -1)" aria-label="Previous Image">
-            <i class="fa-solid fa-chevron-left"></i>
-          </button>
-          <button class="slide-btn next-btn" onclick="changeSlide(this, 1)" aria-label="Next Image">
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
+            <!-- Left and Right Navigation Buttons -->
+            <button class="slide-btn prev-btn" onclick="changeSlide(this, -1)" aria-label="Previous Image">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="slide-btn next-btn" onclick="changeSlide(this, 1)" aria-label="Next Image">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
 
-          <!-- Dot Indicators -->
-          <div class="dots-container">
-            <span class="dot active" onclick="goToSlide(this, 0)"></span>
-            <span class="dot" onclick="goToSlide(this, 1)"></span>
-            <span class="dot" onclick="goToSlide(this, 2)"></span>
-            <span class="dot" onclick="goToSlide(this, 3)"></span>
-            <span class="dot" onclick="goToSlide(this, 4)"></span>
-            <span class="dot" onclick="goToSlide(this, 5)"></span>
-            <span class="dot" onclick="goToSlide(this, 6)"></span>
+            <!-- Dot Indicators -->
+            <div class="dots-container">
+              <span class="dot active" onclick="goToSlide(this, 0)"></span>
+              <span class="dot" onclick="goToSlide(this, 1)"></span>
+              <span class="dot" onclick="goToSlide(this, 2)"></span>
+              <span class="dot" onclick="goToSlide(this, 3)"></span>
+              <span class="dot" onclick="goToSlide(this, 4)"></span>
+              <span class="dot" onclick="goToSlide(this, 5)"></span>
+              <span class="dot" onclick="goToSlide(this, 6)"></span>
+            </div>
+          </div>
+          <div class="game-info">
+            <div class="card-header">
+              <span class="project-type">CAPSTONE PROJECT</span>
+              <h2 class="project-title">Phusion</h2>
+            </div>
+            <p class="project-description">
+              A 2D cooperative physics-based puzzle game, where you are charged particles and you must work together and utilize magnetic principles to solve puzzles, while avoiding getting too close to one another!
+            </p>
+            <div>
+              <span class="tech-pill">Windows</span>
+              <span class="tech-pill">Unity 2D</span>
+              <span class="tech-pill">C#</span>
+              <span class="tech-pill">Local Multiplayer</span>
+              <span class="tech-pill">Physics Gameplay</span>
+              <span class="tech-pill">Configurable Controls</span>
+              <span class="tech-pill">VFXs</span>
+              <span class="tech-pill">Animations</span>              
+              <span class="tech-pill">Keyboard Controls</span>
+              <span class="tech-pill">Controller Support</span>
+            </div>
+            <div class="action-buttons">
+              <a href="https://phoebesworks.itch.io/phusion" target="_blank" rel="noopener noreferrer" class="itch-btn">
+                <i class="fa-brands fa-itch-io"></i>
+                <span>Play on Itch.io</span>
+              </a>
+              <button class="more-details-btn" onclick="toggleMoreDetails(this)">
+                <span>More Details</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+            </div>
           </div>
         </div>
-        <div class="game-info">
-          <div class="card-header">
-            <span class="project-type">CAPSTONE PROJECT</span>
-            <h2 class="project-title">Phusion</h2>
-          </div>
-          <p class="project-description">
-            A 2D cooperative physics-based puzzle game, where you are charged particles and you must work together and utilize magnetic principles to solve puzzles, while avoiding getting too close to one another!
-          </p>
-          <div>
-            <span class="tech-pill">Windows</span>
-            <span class="tech-pill">Unity 2D</span>
-            <span class="tech-pill">C#</span>
-            <span class="tech-pill">Local Multiplayer</span>
-            <span class="tech-pill">Physics Gameplay</span>
-            <span class="tech-pill">Configurable Controls</span>
-            <span class="tech-pill">VFXs</span>
-            <span class="tech-pill">Animations</span>              
-            <span class="tech-pill">Keyboard Controls</span>
-            <span class="tech-pill">Controller Support</span>
-          </div>
-          <div class="itch-link-div">
-            <a href="https://phoebesworks.itch.io/phusion" target="_blank" rel="noopener noreferrer" class="itch-btn">
-              <i class="fa-brands fa-itch-io"></i>
-              <span>Play on Itch.io</span>
-            </a>
+
+        <!-- Expandable Details Section -->
+        <div class="more-details-wrapper">
+          <div class="more-details-inner">
+            <div class="details-content">
+              <h4><i class="fa-solid fa-circle-info"></i> More Details & Highlights</h4>
+              <ul>
+                <li><strong>Role & Development:</strong> Lead Gameplay & Physics Programmer. Developed core polarity switching and attraction/repulsion mechanics.</li>
+                <li><strong>Physics & Mechanics:</strong> Programmed custom 2D magnetic force calculations, velocity solvers, and interactive environmental puzzle triggers.</li>
+                <li><strong>UX & Polish:</strong> Designed dynamic HUD visual feedback, dynamic gamepad vibrations, and seamless local 2-player input handling.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </article>
 
       <!-- Game 2 -->
       <article class="game-section">
-        <div class="game-cover">
-          <!-- Slides -->
-          <img class="slide active" src="restaurantour (1).png" alt="Restaurantour Preview 1">
-          <img class="slide" src="restaurantour (2).png" alt="Restaurantour Preview 2">
-          <img class="slide" src="restaurantour (3).png" alt="Restaurantour Preview 3">
-          <img class="slide" src="restaurantour (4).png" alt="Restaurantour Preview 4">
+        <div class="game-main-content">
+          <div class="game-cover">
+            <!-- Slides -->
+            <img class="slide active" src="restaurantour (1).png" alt="Restaurantour Preview 1">
+            <img class="slide" src="restaurantour (2).png" alt="Restaurantour Preview 2">
+            <img class="slide" src="restaurantour (3).png" alt="Restaurantour Preview 3">
+            <img class="slide" src="restaurantour (4).png" alt="Restaurantour Preview 4">
 
-          <!-- Navigation Buttons -->
-          <button class="slide-btn prev-btn" onclick="changeSlide(this, -1)" aria-label="Previous Image">
-            <i class="fa-solid fa-chevron-left"></i>
-          </button>
-          <button class="slide-btn next-btn" onclick="changeSlide(this, 1)" aria-label="Next Image">
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
+            <!-- Navigation Buttons -->
+            <button class="slide-btn prev-btn" onclick="changeSlide(this, -1)" aria-label="Previous Image">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="slide-btn next-btn" onclick="changeSlide(this, 1)" aria-label="Next Image">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
 
-          <!-- Dot Indicators -->
-          <div class="dots-container">
-            <span class="dot active" onclick="goToSlide(this, 0)"></span>
-            <span class="dot" onclick="goToSlide(this, 1)"></span>
-            <span class="dot" onclick="goToSlide(this, 2)"></span>
-            <span class="dot" onclick="goToSlide(this, 3)"></span>
+            <!-- Dot Indicators -->
+            <div class="dots-container">
+              <span class="dot active" onclick="goToSlide(this, 0)"></span>
+              <span class="dot" onclick="goToSlide(this, 1)"></span>
+              <span class="dot" onclick="goToSlide(this, 2)"></span>
+              <span class="dot" onclick="goToSlide(this, 3)"></span>
+            </div>
+          </div>
+          <div class="game-info">
+            <div class="card-header">
+              <span class="project-type">2D TRAINING SIMULATOR</span>
+              <h2 class="project-title">Restaurantour</h2>
+            </div>
+            <p class="project-description">
+              A small interactive learning experience where you learn how to be an excellent hospitality worker at a restaurant
+            </p>
+            <div>
+              <span class="tech-pill">WebGL</span>
+              <span class="tech-pill">Browser Support</span>
+              <span class="tech-pill">Unity 2D</span>
+              <span class="tech-pill">C#</span>
+              <span class="tech-pill">Singleplayer</span>
+              <span class="tech-pill">Physics Gameplay</span>         
+              <span class="tech-pill">Keyboard and Mouse Support</span>
+            </div>
+            <div class="action-buttons">
+              <a href="https://zkowski.itch.io/gad221-2-25t2-project-two-restaurantour" target="_blank" rel="noopener noreferrer" class="itch-btn">
+                <i class="fa-brands fa-itch-io"></i>
+                <span>Play on Itch.io</span>
+              </a>
+              <button class="more-details-btn" onclick="toggleMoreDetails(this)">
+                <span>More Details</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+            </div>
           </div>
         </div>
-        <div class="game-info">
-          <div class="card-header">
-            <span class="project-type">2D TRAINING SIMULATOR</span>
-            <h2 class="project-title">Restaurantour</h2>
-          </div>
-          <p class="project-description">
-            A small interactive learning experience where you learn how to be an excellent hospitality worker at a restaurant
-          </p>
-          <div>
-            <span class="tech-pill">WebGL</span>
-            <span class="tech-pill">Browser Support</span>
-            <span class="tech-pill">Unity 2D</span>
-            <span class="tech-pill">C#</span>
-            <span class="tech-pill">Singleplayer</span>
-            <span class="tech-pill">Physics Gameplay</span>         
-            <span class="tech-pill">Keyboard and Mouse Support</span>
-          </div>
-          <div class="itch-link-div">
-            <a href="https://zkowski.itch.io/gad221-2-25t2-project-two-restaurantour" target="_blank" rel="noopener noreferrer" class="itch-btn">
-              <i class="fa-brands fa-itch-io"></i>
-              <span>Play on Itch.io</span>
-            </a>
+
+        <!-- Expandable Details Section -->
+        <div class="more-details-wrapper">
+          <div class="more-details-inner">
+            <div class="details-content">
+              <h4><i class="fa-solid fa-circle-info"></i> More Details & Highlights</h4>
+              <ul>
+                <li><strong>Role & Concept:</strong> Built as an educational simulation game designed to train staff in fast-paced restaurant scenarios.</li>
+                <li><strong>Key Mechanics:</strong> Task management systems, order timing queues, and customer satisfaction meters.</li>
+                <li><strong>Platform Optimization:</strong> WebGL target build with lightweight assets to ensure fast web load times across browsers.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </article>
 
       <!-- Game 3 -->
       <article class="game-section">
-        <div class="game-cover">
-          <!-- Slides -->
-          <img class="slide active" src="bunnyhop (1).jpg" alt="Bunny Hop Preview 1">
-          <img class="slide" src="bunnyhop (2).jpg" alt="Bunny Hop Preview 3">
-          <img class="slide" src="bunnyhop (3).jpg" alt="Bunny Hop Preview 4">
-          <img class="slide" src="bunnyhop (4).jpg" alt="Bunny Hop Preview 5">
-          <img class="slide" src="bunnyhop (5).jpg" alt="Bunny Hop Preview 6">
-          <img class="slide" src="bunnyhop (6).jpg" alt="Bunny Hop Preview 7">
+        <div class="game-main-content">
+          <div class="game-cover">
+            <!-- Slides -->
+            <img class="slide active" src="bunnyhop (1).jpg" alt="Bunny Hop Preview 1">
+            <img class="slide" src="bunnyhop (2).jpg" alt="Bunny Hop Preview 3">
+            <img class="slide" src="bunnyhop (3).jpg" alt="Bunny Hop Preview 4">
+            <img class="slide" src="bunnyhop (4).jpg" alt="Bunny Hop Preview 5">
+            <img class="slide" src="bunnyhop (5).jpg" alt="Bunny Hop Preview 6">
+            <img class="slide" src="bunnyhop (6).jpg" alt="Bunny Hop Preview 7">
 
-          <!-- Navigation Buttons -->
-          <button class="slide-btn prev-btn" onclick="changeSlide(this, -1)" aria-label="Previous Image">
-            <i class="fa-solid fa-chevron-left"></i>
-          </button>
-          <button class="slide-btn next-btn" onclick="changeSlide(this, 1)" aria-label="Next Image">
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
+            <!-- Navigation Buttons -->
+            <button class="slide-btn prev-btn" onclick="changeSlide(this, -1)" aria-label="Previous Image">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="slide-btn next-btn" onclick="changeSlide(this, 1)" aria-label="Next Image">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
 
-          <!-- Dot Indicators -->
-          <div class="dots-container">
-            <span class="dot active" onclick="goToSlide(this, 0)"></span>
-            <span class="dot" onclick="goToSlide(this, 1)"></span>
-            <span class="dot" onclick="goToSlide(this, 2)"></span>
-            <span class="dot" onclick="goToSlide(this, 3)"></span>
-            <span class="dot" onclick="goToSlide(this, 4)"></span>
-            <span class="dot" onclick="goToSlide(this, 5)"></span>
+            <!-- Dot Indicators -->
+            <div class="dots-container">
+              <span class="dot active" onclick="goToSlide(this, 0)"></span>
+              <span class="dot" onclick="goToSlide(this, 1)"></span>
+              <span class="dot" onclick="goToSlide(this, 2)"></span>
+              <span class="dot" onclick="goToSlide(this, 3)"></span>
+              <span class="dot" onclick="goToSlide(this, 4)"></span>
+              <span class="dot" onclick="goToSlide(this, 5)"></span>
+            </div>
+          </div>
+          <div class="game-info">
+            <div class="card-header">
+              <span class="project-type">MOBILE GAME</span>
+              <h2 class="project-title">Bunny Hop</h2>
+            </div>
+            <p class="project-description">
+              A 2D Cutest Endless Runner Experience, you are a bunny and you have to collect carrots and avoid obstacles. You are also offered some power-ups to help you score the highest. Compete to stay on top of the leaderboard
+            </p>
+            <div>
+              <span class="tech-pill">Android</span>
+              <span class="tech-pill">Unity 2D</span>
+              <span class="tech-pill">C#</span>
+              <span class="tech-pill">Singleplayer</span>
+              <span class="tech-pill">Online Leaderboard</span>
+              <span class="tech-pill">High Score</span>
+            </div>
+            <div class="action-buttons">
+              <a href="https://mirza-wilayat-ali.itch.io/bunny-hop" target="_blank" rel="noopener noreferrer" class="itch-btn">
+                <i class="fa-brands fa-itch-io"></i>
+                <span>Play on Itch.io</span>
+              </a>
+              <button class="more-details-btn" onclick="toggleMoreDetails(this)">
+                <span>More Details</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+            </div>
           </div>
         </div>
-        <div class="game-info">
-          <div class="card-header">
-            <span class="project-type">MOBILE GAME</span>
-            <h2 class="project-title">Bunny Hop</h2>
-          </div>
-          <p class="project-description">
-            A 2D Cutest Endless Runner Experience, you are a bunny and you have to collect carrots and avoid obstacles. You are also offered some power-ups to help you score the highest. Compete to stay on top of the leaderboard
-          </p>
-          <div>
-            <span class="tech-pill">Android</span>
-            <span class="tech-pill">Unity 2D</span>
-            <span class="tech-pill">C#</span>
-            <span class="tech-pill">Singleplayer</span>
-            <span class="tech-pill">Online Leaderboard</span>
-            <span class="tech-pill">High Score</span>
-          </div>
-          <div class="itch-link-div">
-            <a href="https://mirza-wilayat-ali.itch.io/bunny-hop" target="_blank" rel="noopener noreferrer" class="itch-btn">
-              <i class="fa-brands fa-itch-io"></i>
-              <span>Play on Itch.io</span>
-            </a>
+
+        <!-- Expandable Details Section -->
+        <div class="more-details-wrapper">
+          <div class="more-details-inner">
+            <div class="details-content">
+              <h4><i class="fa-solid fa-circle-info"></i> More Details & Highlights</h4>
+              <ul>
+                <li><strong>Mobile Systems:</strong> Designed responsive touch screen jump and swipe controls tailored for mobile screens.</li>
+                <li><strong>Leaderboard Integration:</strong> Integrated backend cloud high-score tracking and player name registration.</li>
+                <li><strong>Progression & Power-ups:</strong> Procedurally generated obstacle spawning and power-up pickup loops with dynamic scaling difficulty.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </article>
 
       <!-- Game 4 -->
       <article class="game-section">
-        <div class="game-cover">
-          <!-- Slides -->
-          <img class="slide active" src="TT1.png" alt="Tavern Tally Preview 1">
-          <img class="slide" src="TT2.png" alt="Tavern Tally Preview 2">
-          <img class="slide" src="TT3.png" alt="Tavern Tally Preview 3">
-          <img class="slide" src="TT4.png" alt="Tavern Tally Preview 4">
+        <div class="game-main-content">
+          <div class="game-cover">
+            <!-- Slides -->
+            <img class="slide active" src="TT1.png" alt="Tavern Tally Preview 1">
+            <img class="slide" src="TT2.png" alt="Tavern Tally Preview 2">
+            <img class="slide" src="TT3.png" alt="Tavern Tally Preview 3">
+            <img class="slide" src="TT4.png" alt="Tavern Tally Preview 4">
 
-          <!-- Navigation Buttons -->
-          <button class="slide-btn prev-btn" onclick="changeSlide(this, -1)" aria-label="Previous Image">
-            <i class="fa-solid fa-chevron-left"></i>
-          </button>
-          <button class="slide-btn next-btn" onclick="changeSlide(this, 1)" aria-label="Next Image">
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
+            <!-- Navigation Buttons -->
+            <button class="slide-btn prev-btn" onclick="changeSlide(this, -1)" aria-label="Previous Image">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="slide-btn next-btn" onclick="changeSlide(this, 1)" aria-label="Next Image">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
 
-          <!-- Dot Indicators -->
-          <div class="dots-container">
-            <span class="dot active" onclick="goToSlide(this, 0)"></span>
-            <span class="dot" onclick="goToSlide(this, 1)"></span>
-            <span class="dot" onclick="goToSlide(this, 2)"></span>
-            <span class="dot" onclick="goToSlide(this, 3)"></span>
+            <!-- Dot Indicators -->
+            <div class="dots-container">
+              <span class="dot active" onclick="goToSlide(this, 0)"></span>
+              <span class="dot" onclick="goToSlide(this, 1)"></span>
+              <span class="dot" onclick="goToSlide(this, 2)"></span>
+              <span class="dot" onclick="goToSlide(this, 3)"></span>
+            </div>
+          </div>
+          <div class="game-info">
+            <div class="card-header">
+              <span class="project-type">ROLE PLAYING GAME</span>
+              <h2 class="project-title">Tavern Troubles</h2>
+            </div>
+            <p class="project-description">
+            A 2D role playing game where you are playing as a bartender and you have to save your local tavern by helping them complete a series of tasks
+            </p>
+            <div>
+              <span class="tech-pill">Windows</span>
+              <span class="tech-pill">Unity 2D</span>
+              <span class="tech-pill">C#</span>
+              <span class="tech-pill">Singleplayer</span>
+              <span class="tech-pill">Immersive Gameplay</span>         
+              <span class="tech-pill">Mouse Only Controls</span>
+            </div>
+            <div class="action-buttons">
+              <a href="https://sarale09.itch.io/tavern-troubles" target="_blank" rel="noopener noreferrer" class="itch-btn">
+                <i class="fa-brands fa-itch-io"></i>
+                <span>Play on Itch.io</span>
+              </a>
+              <button class="more-details-btn" onclick="toggleMoreDetails(this)">
+                <span>More Details</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+            </div>
           </div>
         </div>
-        <div class="game-info">
-          <div class="card-header">
-            <span class="project-type">ROLE PLAYING GAME</span>
-            <h2 class="project-title">Tavern Troubles</h2>
-          </div>
-          <p class="project-description">
-          A 2D role playing game where you are playing as a bartender and you have to save your local tavern by helping them complete a series of tasks
-          </p>
-          <div>
-            <span class="tech-pill">Windows</span>
-            <span class="tech-pill">Unity 2D</span>
-            <span class="tech-pill">C#</span>
-            <span class="tech-pill">Singleplayer</span>
-            <span class="tech-pill">Immersive Gameplay</span>         
-            <span class="tech-pill">Mouse Only Controls</span>
-          </div>
-          <div class="itch-link-div">
-            <a href="https://sarale09.itch.io/tavern-troubles" target="_blank" rel="noopener noreferrer" class="itch-btn">
-              <i class="fa-brands fa-itch-io"></i>
-              <span>Play on Itch.io</span>
-            </a>
+
+        <!-- Expandable Details Section -->
+        <div class="more-details-wrapper">
+          <div class="more-details-inner">
+            <div class="details-content">
+              <h4><i class="fa-solid fa-circle-info"></i> More Details & Highlights</h4>
+              <ul>
+                <li><strong>Narrative & Quests:</strong> Branching dialogue trees and task system for tavern quest progression.</li>
+                <li><strong>Mouse Interaction:</strong> Point-and-click ingredient mixing, order fulfillment mechanics, and inventory handling.</li>
+                <li><strong>Art & Ambiance:</strong> Custom cozy tavern audio integration, dynamic lighting effects, and particle animations.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </article>
@@ -353,9 +434,8 @@
         <h2 class="contact-heading">Get In Touch</h2>
         <p class="contact-subheading">Have a project or game idea in mind? Drop me a message!</p>
 
-        <form id="contact-form" action="https://formspree.io/f/myezgbqo" method="POST">
-
-          <input type="hidden" name="_next" value="https://mirzawilayatali.me/index.html" />
+        <!-- Direct Form Handling via Mailto/JS -->
+        <form id="contact-form" action="https://formspree.io/f/myezgbqo" method="POST" onsubmit="handleContactSubmit(event)">
 
           <div class="form-group">
             <label for="name">Name</label>
@@ -377,6 +457,7 @@
             <i class="fa-solid fa-paper-plane"></i>
           </button>
 
+          <!-- Form Status Message Banner Area -->
           <p id="form-status" class="form-status"></p>
         </form>
       </div>
@@ -384,14 +465,7 @@
   </main>
 
   <footer>
-    <div>
-      <span id="footer-name">
-      &copy; 2026 Mirza Wilayat Ali — Portfolio
-    </span>
-    <span id="footer-legals">
-      <a href="">Privacy Policy</a> | <a href="">Terms & Conditions</a>
-    </span>
-    </div>
+    &copy; 2026 Mirza Wilayat Ali — Portfolio
   </footer>
 
   <script>
@@ -408,15 +482,35 @@
 
     function setActiveTab(tabId, clickedBtn) {
       navBtns.forEach(btn => btn.classList.remove('active'));
-      clickedBtn.classList.add('active');
-
-      positionHighlight(clickedBtn);
+      if (clickedBtn) {
+        clickedBtn.classList.add('active');
+        positionHighlight(clickedBtn);
+      }
 
       document.getElementById('section-home').style.display = 'none';
       document.getElementById('section-work').style.display = 'none';
       document.getElementById('section-contact').style.display = 'none';
 
       document.getElementById(`section-${tabId}`).style.display = 'block';
+    }
+
+    // Function to navigate back to Home when Brand Logo is clicked
+    function navigateToHome() {
+      const homeBtn = document.querySelectorAll('.nav-btn')[0];
+      setActiveTab('home', homeBtn);
+      
+      // Update sidebar state if on mobile
+      const sidebarBtns = document.querySelectorAll('.sidebar-btn');
+      sidebarBtns.forEach(btn => {
+        if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'home'")) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      toggleMobileMenu(false);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     window.addEventListener('load', () => {
@@ -459,52 +553,105 @@
     }
 
     // Toggle Mobile Side Drawer
-function toggleMobileMenu(isOpen) {
-  const sidebar = document.getElementById('mobile-sidebar');
-  const overlay = document.getElementById('sidebar-overlay');
+    function toggleMobileMenu(isOpen) {
+      const sidebar = document.getElementById('mobile-sidebar');
+      const overlay = document.getElementById('sidebar-overlay');
 
-  if (isOpen) {
-    sidebar.classList.add('open');
-    overlay.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Prevent scrolling when open
-  } else {
-    sidebar.classList.remove('open');
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-}
-
-// Handle Navigation from Mobile Drawer
-function handleMobileNav(tabId) {
-  // Sync Desktop Pill Highlight & Tab Switch
-  const desktopBtns = document.querySelectorAll('.nav-btn');
-  let matchedDesktopBtn = null;
-
-  desktopBtns.forEach(btn => {
-    if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(`'${tabId}'`)) {
-      matchedDesktopBtn = btn;
+      if (isOpen) {
+        sidebar.classList.add('open');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when open
+      } else {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
     }
-  });
 
-  if (matchedDesktopBtn) {
-    setActiveTab(tabId, matchedDesktopBtn);
-  }
+    // Handle Navigation from Mobile Drawer
+    function handleMobileNav(tabId) {
+      const desktopBtns = document.querySelectorAll('.nav-btn');
+      let matchedDesktopBtn = null;
 
-  // Update active state in Mobile Sidebar
-  const sidebarBtns = document.querySelectorAll('.sidebar-btn');
-  sidebarBtns.forEach(btn => {
-    if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(`'${tabId}'`)) {
-      btn.classList.add('active');
-    } else {
-      btn.classList.remove('active');
+      desktopBtns.forEach(btn => {
+        if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(`'${tabId}'`)) {
+          matchedDesktopBtn = btn;
+        }
+      });
+
+      if (matchedDesktopBtn) {
+        setActiveTab(tabId, matchedDesktopBtn);
+      }
+
+      const sidebarBtns = document.querySelectorAll('.sidebar-btn');
+      sidebarBtns.forEach(btn => {
+        if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(`'${tabId}'`)) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      toggleMobileMenu(false);
     }
-  });
 
-  // Close Side Panel
-  toggleMobileMenu(false);
+    // Expand / Collapse More Details Section
+    function toggleMoreDetails(btn) {
+      const gameSection = btn.closest('.game-section');
+      const detailsWrapper = gameSection.querySelector('.more-details-wrapper');
+      const isExpanded = detailsWrapper.classList.contains('open');
 
+      btn.classList.toggle('active', !isExpanded);
+      detailsWrapper.classList.toggle('open', !isExpanded);
 
-}
+      const btnText = btn.querySelector('span');
+      if (btnText) {
+        btnText.textContent = isExpanded ? 'More Details' : 'Less Details';
+      }
+    }
+
+    // Formspree AJAX Submission Handler
+    async function handleContactSubmit(event) {
+      event.preventDefault();
+      
+      const form = event.target;
+      const statusEl = document.getElementById('form-status');
+      const submitBtn = document.getElementById('submit-btn');
+
+      submitBtn.disabled = true;
+      statusEl.style.display = 'block';
+      statusEl.textContent = 'Sending message...';
+      statusEl.className = 'form-status';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          statusEl.textContent = 'Thanks for reaching out, I will get back to you shortly.';
+          statusEl.className = 'form-status success';
+          form.reset();
+        } else {
+          const data = await response.json();
+          if (data && data.errors) {
+            statusEl.textContent = data.errors.map(err => err.message).join(', ');
+          } else {
+            statusEl.textContent = 'Oops! There was a problem submitting your form.';
+          }
+          statusEl.className = 'form-status error';
+        }
+      } catch (error) {
+        statusEl.textContent = 'Oops! Network error. Please try again later.';
+        statusEl.className = 'form-status error';
+      } finally {
+        submitBtn.disabled = false;
+      }
+    }
   </script>
 </body>
 </html>

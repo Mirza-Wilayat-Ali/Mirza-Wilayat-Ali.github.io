@@ -66,6 +66,17 @@ justify-content: center;
 min-width: 180px;
 }
 
+/* Clickable Brand Logo Styles */
+.clickable-brand {
+cursor: pointer;
+user-select: none;
+transition: opacity 0.2s ease;
+}
+
+.clickable-brand:hover {
+opacity: 0.85;
+}
+
 .brand-name {
 font-size: 22px;
 font-weight: 700;
@@ -183,7 +194,6 @@ transform: translate(2px, -2px);
 MOBILE SIDE PANEL & HAMBURGER STYLES
 ========================================== */
 
-/* Hide Mobile Elements by Default on Desktop */
 .hamburger-btn {
 display: none;
 background: transparent;
@@ -406,6 +416,7 @@ margin: 0 3rem;
 .game-section {
 width: 85%;
 display: flex;
+flex-direction: column; /* Allows main top section & expandable details to stack */
 background-color: var(--card-bg);
 border: 1px solid var(--border-subtle);
 border-radius: 16px;
@@ -414,6 +425,11 @@ box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
 backdrop-filter: blur(12px);
 transition: border-color 0.3s ease, transform 0.3s ease;
 margin: 0 auto 2.5rem auto;
+}
+
+.game-main-content {
+display: flex;
+width: 100%;
 }
 
 .game-cover {
@@ -537,9 +553,12 @@ line-height: 1.7;
 margin-bottom: 2rem;
 }
 
-.itch-link-div {
+.action-buttons {
 display: flex;
-margin: 1.2rem 0;
+align-items: center;
+gap: 1rem;
+flex-wrap: wrap;
+margin-top: 1.2rem;
 }
 
 .itch-btn {
@@ -564,6 +583,89 @@ box-shadow: 0 0 12px rgba(0, 243, 255, 0.08);
 background-color: var(--accent-cyan);
 color: #090a0c;
 box-shadow: 0 0 24px rgba(0, 243, 255, 0.4);
+}
+
+/* More Details Button */
+.more-details-btn {
+display: inline-flex;
+align-items: center;
+gap: 0.5rem;
+background: rgba(255, 255, 255, 0.05);
+color: var(--text-main);
+border: 1.5px solid rgba(255, 255, 255, 0.15);
+padding: 0.8rem 1.4rem;
+font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+font-size: 0.9rem;
+font-weight: 600;
+border-radius: 8px;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.more-details-btn:hover {
+background: rgba(255, 255, 255, 0.12);
+border-color: rgba(255, 255, 255, 0.3);
+}
+
+.more-details-btn i {
+transition: transform 0.3s ease;
+font-size: 0.8rem;
+}
+
+.more-details-btn.active i {
+transform: rotate(180deg);
+}
+
+/* Expandable Slide-down Section */
+.more-details-wrapper {
+display: grid;
+grid-template-rows: 0fr;
+transition: grid-template-rows 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+background: rgba(0, 0, 0, 0.3);
+border-top: 1px solid transparent;
+}
+
+.more-details-wrapper.open {
+grid-template-rows: 1fr;
+border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.more-details-inner {
+overflow: hidden;
+}
+
+.details-content {
+padding: 2rem 2.5rem;
+font-family: 'Google Sans Flex', sans-serif;
+}
+
+.details-content h4 {
+font-family: 'Roboto', sans-serif;
+color: #ffffff;
+font-size: 1.1rem;
+margin-bottom: 1rem;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+}
+
+.details-content h4 i {
+color: var(--accent-cyan);
+}
+
+.details-content ul {
+list-style: none;
+padding-left: 0;
+display: flex;
+flex-direction: column;
+gap: 0.75rem;
+color: var(--text-muted);
+font-size: 0.95rem;
+line-height: 1.6;
+}
+
+.details-content ul li strong {
+color: var(--text-main);
 }
 
 .tech-pill {
@@ -667,6 +769,30 @@ color: black;
 box-shadow: 0 0 10px lightgray;
 }
 
+/* Contact Form Bottom Banner Status Message */
+.form-status {
+margin-top: 1.25rem;
+font-family: "Google Sans Flex", sans-serif;
+font-size: 0.88rem;
+text-align: center;
+padding: 0.85rem 1rem;
+border-radius: 8px;
+display: none;
+animation: fadeIn 0.3s ease;
+}
+
+.form-status.success {
+display: block;
+color: var(--accent-green);
+background: rgba(16, 185, 129, 0.1);
+border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(4px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
 footer {
 padding: 2rem 1rem;
 color: darkgray;
@@ -676,25 +802,7 @@ position: relative;
 z-index: 10;
 background-color: #141414;
 font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-/* Footer Content Container */
-footer div {
-width: 65%;
-margin: 0 auto;
-display: flex;
-justify-content: space-between; /* Pushes name to left, legals to right */
-align-items: center;
-}
-
-/* Styling for the legal links */
-footer a {
-color: darkgray;
-transition: color 0.2s ease;
-}
-
-footer a:hover {
-color: #ffffff; /* White text on hover */
+text-align: center;
 }
 
 @media (max-width: 850px) {
@@ -709,56 +817,45 @@ flex-grow: 1;
 .hero-video-wrapper {
 height: 45vh;
 }
-.game-section {
+
+.game-main-content {
 flex-direction: column;
 }
+
 .game-cover {
 min-height: 220px;
 }
+
 .game-info {
 padding: 2rem 1.5rem;
+}
+
+.details-content {
+padding: 1.5rem 1.25rem;
 }
 
 .header-nav{
 position: relative;
 }
+
 .header-container {
 display: flex;
 justify-content: space-between;
 align-items: center;
 }
 
-/* Reset flex growing from desktop */
 .brand-group {
 flex: initial;
 }
 
-/* Force the hamburger button to the right edge */
 .hamburger-btn {
 display: block;
 margin-left: auto;
 }
 
-/* Hide Desktop Nav and Links */
 .nav-pill-wrapper,
 .right-links {
 display: none;
-}
-.header-container {
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
-}
-
-/* Hide Desktop Nav and Links */
-.nav-pill-wrapper,
-.right-links {
-display: none;
-}
-
-/* Show Hamburger Icon */
-.hamburger-btn {
-display: block;
 }
 
 .hero-video-wrapper {
@@ -785,34 +882,17 @@ margin: 0;
 
 .game-section {
 width: 98%;
-flex-direction: column;
-}
-
-.game-cover {
-min-height: 240px;
-}
-
-.game-info {
-padding: 2rem 1.5rem;
 }
 
 .project-title {
 font-size: 1.75rem;
 }
 
-.itch-link-div{
-display: block;
-margin: 1.5rem auto 0;
+.action-buttons {
+margin-top: 1.5rem;
 }
 
 .contact-card{
 padding: 3.5rem 1.2rem;
-}
-
-footer div {
-width: 90%; /* Expanded width on mobile so text doesn't wrap unnecessarily */
-flex-direction: column; /* Stacks items vertically */
-gap: 0.75rem; /* Space between name and legal links */
-text-align: center;
 }
 }
