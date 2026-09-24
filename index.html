@@ -104,9 +104,23 @@
     <section id="section-home" class="tab-section">
       
     <div class="hero-video-wrapper">
-      <div class="video-loader" id="videoLoader"></div>
-      <video id="myVideo" autoplay loop muted playsinline controls preload="metadata">
-        <source src="B-Roll-Games.mp4" type="video/mp4">
+      <div class="video-loader" id="videoLoader">
+        <h2 class="loader-name">
+          <span class="bracket">&lt;</span>
+          <span class="gradient-text">Mirza Wilayat Ali</span>
+          <span class="bracket">&gt;</span>
+        </h2>
+        <p class="loader-role">
+          Games Programmer<span class="blinking-cursor">|</span>
+        </p>
+        <span class="loader-text">Loading...</span>
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" id="progressBarFill"></div>
+        </div>
+      </div>
+
+      <video id="myVideo" autoplay loop muted controls preload="metadata">
+        <source src="BROLLGAMES.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
       </video>
     </div>
@@ -469,11 +483,14 @@
   <footer>
     &copy; 2026 Mirza Wilayat Ali — Portfolio
   </footer>
-
-  <script>
+    <script>
+    // Elements
     const navHighlight = document.getElementById('nav-highlight');
     const navBtns = document.querySelectorAll('.nav-btn');
     const sections = document.querySelectorAll('.tab-section');
+    const video = document.getElementById('myVideo');
+    const loader = document.getElementById('videoLoader');
+    const progressBarFill = document.getElementById('progressBarFill');
 
     function positionHighlight(targetBtn) {
       if (!targetBtn) return;
@@ -494,6 +511,15 @@
       document.getElementById('section-contact').style.display = 'none';
 
       document.getElementById(`section-${tabId}`).style.display = 'block';
+
+      // Pause video on other tabs, resume when returning home
+      if (video) {
+        if (tabId === 'home') {
+          video.play().catch(() => {}); // Safely play video when returning to home
+        } else {
+          video.pause(); // Instantly pause video when switching away
+        }
+      }
     }
 
     // Function to navigate back to Home when Brand Logo is clicked
@@ -655,16 +681,28 @@
       }
     }
 
-      const video = document.getElementById('myVideo');
-      const loader = document.getElementById('videoLoader');
+    // Video Loader Progress & Buffering logic
+    function updateBufferProgress() {
+      if (video.duration > 0 && video.buffered.length > 0) {
+        const bufferedEnd = video.buffered.end(video.buffered.length - 1);
+        const percent = Math.min((bufferedEnd / video.duration) * 100, 100);
+        if (progressBarFill) {
+          progressBarFill.style.width = `${percent}%`;
+        }
+      }
+    }
 
-      // Hide loader when the video is ready or actively playing
-      video.addEventListener('canplay', () => loader.classList.add('hidden'));
-      video.addEventListener('playing', () => loader.classList.add('hidden'));
+    video.addEventListener('progress', updateBufferProgress);
+    video.addEventListener('canplaythrough', updateBufferProgress);
 
-      // Show loader when video is waiting on network data or buffering mid-playback
-      video.addEventListener('waiting', () => loader.classList.remove('hidden'));
-      video.addEventListener('loadstart', () => loader.classList.remove('hidden'));
+    video.addEventListener('canplay', () => loader.classList.add('hidden'));
+    video.addEventListener('playing', () => loader.classList.add('hidden'));
+
+    video.addEventListener('waiting', () => loader.classList.remove('hidden'));
+    video.addEventListener('loadstart', () => {
+      loader.classList.remove('hidden');
+      if (progressBarFill) progressBarFill.style.width = '0%';
+    });
   </script>
 </body>
 </html>

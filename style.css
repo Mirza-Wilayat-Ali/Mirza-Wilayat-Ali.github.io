@@ -388,24 +388,107 @@ height: 100%;
 display: block;
 }
 
-/* Throbbing Circle Loader */
+/* Cyberpunk Title & Loading Screen Overlay */
 .video-loader {
 position: absolute;
-top: 50%;
-left: 50%;
-width: 60px;
-height: 60px;
-background-color: rgba(255, 255, 255, 0.85);
-border-radius: 50%;
-z-index: 10;
+inset: 0;
+background: rgba(10, 12, 18, 0.92);
+backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
+z-index: 20;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 1.5rem;
+text-align: center;
 pointer-events: none;
-transform: translate(-50%, -50%);
-animation: throb 1.2s infinite ease-in-out;
+transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
-/* Hidden state for loader */
 .video-loader.hidden {
-display: none;
+opacity: 0;
+visibility: hidden;
+}
+
+/* Gradient Name with Cyan Angled Brackets */
+.loader-name {
+font-family: 'Fira Code', monospace;
+font-size: clamp(1.5rem, 4vw, 2.75rem);
+font-weight: 700;
+letter-spacing: -0.5px;
+margin: 0 0 0.5rem 0;
+line-height: 1.2;
+}
+
+.loader-name .bracket {
+color: #00f3ff;
+text-shadow: 0 0 12px rgba(0, 243, 255, 0.6);
+}
+
+.loader-name .gradient-text {
+background: linear-gradient(90deg, #00f3ff 0%, #a855f7 100%);
+-webkit-text-fill-color: transparent;
+filter: drop-shadow(0 0 12px rgba(0, 243, 255, 0.3));
+}
+
+/* Occupation Title with Blinking Terminal Cursor */
+.loader-role {
+font-family: 'Fira Code', monospace;
+font-size: clamp(1rem, 2.5vw, 1.6rem);
+font-weight: 500;
+color: #ffffff;
+margin: 0 0 1.5rem 0;
+letter-spacing: 1px;
+}
+
+.blinking-cursor {
+color: #00f3ff;
+margin-left: 2px;
+animation: cursorBlink 1s step-start infinite;
+}
+
+@keyframes cursorBlink {
+0%, 100% { opacity: 1; }
+50% { opacity: 0; }
+}
+
+/* "Loading..." Text Label */
+.loader-text {
+font-family: 'Fira Code', monospace;
+font-size: clamp(0.9rem, 2vw, 1.15rem);
+font-weight: 500;
+color: #ffffff;
+letter-spacing: 2px;
+margin-bottom: 0.75rem;
+animation: pulseText 1.5s infinite ease-in-out;
+}
+
+@keyframes pulseText {
+0%, 100% { opacity: 0.6; }
+50% { opacity: 1; }
+}
+
+/* Glowing Cyan-to-Purple Progress Bar Container */
+.progress-bar-container {
+width: 360px;
+max-width: 85%;
+height: 18px;
+background: rgba(8, 12, 20, 0.95);
+border: 1.5px solid #00f3ff;
+border-radius: 4px;
+padding: 2px;
+box-shadow: 0 0 15px rgba(0, 243, 255, 0.4), inset 0 0 10px rgba(0, 0, 0, 0.9);
+overflow: hidden;
+}
+
+.progress-bar-fill {
+height: 100%;
+width: 0%;
+background: linear-gradient(90deg, #00f3ff 0%, #a855f7 100%);
+border-radius: 2px;
+box-shadow: 0 0 12px rgba(0, 243, 255, 0.8), 0 0 18px rgba(168, 85, 247, 0.6);
+transition: width 0.25s ease-out;
 }
 
 .about-card {
