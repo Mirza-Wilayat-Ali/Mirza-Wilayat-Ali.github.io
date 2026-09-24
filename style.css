@@ -480,6 +480,45 @@ backdrop-filter: blur(12px);
 margin: 8rem auto;
 width: 70%;
 }
+/* Magazine Story Container */
+.about-story-container {
+column-count: 2;
+column-gap: 2.5rem;
+column-rule: 1px solid rgba(255, 255, 255, 0.08); /* Soft line between columns */
+font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+font-size: 0.95rem;
+line-height: 1.8;
+color: whitesmoke;
+text-align: justify;
+margin-top: 2rem;
+}
+
+/* Individual Story Paragraphs */
+.about-story-container p {
+margin-bottom: 1.25rem;
+break-inside: avoid; /* Prevents awkward mid-paragraph column breaks */
+}
+
+/* Featured Lead Paragraph */
+.about-story-container .story-lead {
+font-size: 1.05rem;
+font-weight: 500;
+color: #ffffff;
+border-left: 2px solid var(--accent-blue);
+padding-left: 1rem;
+margin-bottom: 1.5rem;
+}
+
+/* Bold Game Titles Highlight */
+.about-story-container strong {
+color: #ffffff;
+font-weight: 600;
+}
+
+.about-story-container em {
+color: #94a3b8;
+font-style: italic;
+}
 
 .about-profile-img {
 display: flex;
@@ -913,6 +952,9 @@ font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 text-align: center;
 }
 
+/*=============================================================================*/
+/*============================ Mobile Width CSS ===============================*/
+
 @media (max-width: 850px) {
 .main-container {
 position: relative;
@@ -984,8 +1026,19 @@ padding: 2.5rem 1.5rem;
 margin: 3rem auto;
 }
 
+.about-story-container {
+column-count: 1; /* Collapse to 1 readable column on mobile */
+column-gap: 0;
+column-rule: none;
+font-size: 0.92rem;
+}
+
 .about-description {
 margin: 0;
+}
+
+.about-story-container .story-lead{
+padding: 0 0.5rem;
 }
 
 .game-section {
@@ -998,6 +1051,17 @@ font-size: 1.75rem;
 
 .action-buttons {
 margin-top: 1.5rem;
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+gap: 0.85rem;
+}
+
+.itch-btn, .more-details-btn {
+width: 100%;            
+justify-content: center; 
+text-align: center;
 }
 
 .contact-card{
