@@ -422,14 +422,15 @@ line-height: 1.2;
 }
 
 .loader-name .bracket {
-color: #00f3ff;
-text-shadow: 0 0 12px rgba(0, 243, 255, 0.6);
+color: #60a5fa;
 }
 
 .loader-name .gradient-text {
-background: linear-gradient(90deg, #00f3ff 0%, #a855f7 100%);
+background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+-webkit-background-clip: text;
+background-clip: text;
 -webkit-text-fill-color: transparent;
-filter: drop-shadow(0 0 12px rgba(0, 243, 255, 0.3));
+filter: none;
 }
 
 /* Occupation Title with Blinking Terminal Cursor */
@@ -443,7 +444,7 @@ letter-spacing: 1px;
 }
 
 .blinking-cursor {
-color: #00f3ff;
+color: #60a5fa;
 margin-left: 2px;
 animation: cursorBlink 1s step-start infinite;
 }
@@ -458,7 +459,7 @@ animation: cursorBlink 1s step-start infinite;
 font-family: 'Fira Code', monospace;
 font-size: clamp(0.9rem, 2vw, 1.15rem);
 font-weight: 500;
-color: #ffffff;
+color: #71717a;
 letter-spacing: 2px;
 margin-bottom: 0.75rem;
 animation: pulseText 1.5s infinite ease-in-out;
@@ -485,9 +486,8 @@ overflow: hidden;
 .progress-bar-fill {
 height: 100%;
 width: 0%;
-background: linear-gradient(90deg, #00f3ff 0%, #a855f7 100%);
+background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
 border-radius: 2px;
-box-shadow: 0 0 12px rgba(0, 243, 255, 0.8), 0 0 18px rgba(168, 85, 247, 0.6);
 transition: width 0.25s ease-out;
 }
 
