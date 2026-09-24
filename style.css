@@ -459,7 +459,7 @@ animation: cursorBlink 1s step-start infinite;
 font-family: 'Fira Code', monospace;
 font-size: clamp(0.9rem, 2vw, 1.15rem);
 font-weight: 500;
-color: #71717a;
+color: darkgray;
 letter-spacing: 2px;
 margin-bottom: 0.75rem;
 animation: pulseText 1.5s infinite ease-in-out;
@@ -468,27 +468,6 @@ animation: pulseText 1.5s infinite ease-in-out;
 @keyframes pulseText {
 0%, 100% { opacity: 0.6; }
 50% { opacity: 1; }
-}
-
-/* Glowing Cyan-to-Purple Progress Bar Container */
-.progress-bar-container {
-width: 360px;
-max-width: 85%;
-height: 18px;
-background: rgba(8, 12, 20, 0.95);
-border: 1.5px solid #00f3ff;
-border-radius: 4px;
-padding: 2px;
-box-shadow: 0 0 15px rgba(0, 243, 255, 0.4), inset 0 0 10px rgba(0, 0, 0, 0.9);
-overflow: hidden;
-}
-
-.progress-bar-fill {
-height: 100%;
-width: 0%;
-background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
-border-radius: 2px;
-transition: width 0.25s ease-out;
 }
 
 .about-card {

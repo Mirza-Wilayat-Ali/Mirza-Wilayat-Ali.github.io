@@ -114,9 +114,6 @@
           Games Programmer<span class="blinking-cursor">|</span>
         </p>
         <span class="loader-text">Loading...</span>
-        <div class="progress-bar-container">
-          <div class="progress-bar-fill" id="progressBarFill"></div>
-        </div>
       </div>
 
       <video id="myVideo" autoplay loop muted controls preload="metadata">
@@ -451,7 +448,6 @@
         <h2 class="contact-heading">Get In Touch</h2>
         <p class="contact-subheading">Have a project or game idea in mind? Drop me a message!</p>
 
-        <!-- Direct Form Handling via Mailto/JS -->
         <form id="contact-form" action="https://formspree.io/f/myezgbqo" method="POST" onsubmit="handleContactSubmit(event)">
 
           <div class="form-group">
@@ -491,7 +487,6 @@
     const sections = document.querySelectorAll('.tab-section');
     const video = document.getElementById('myVideo');
     const loader = document.getElementById('videoLoader');
-    const progressBarFill = document.getElementById('progressBarFill');
 
     function positionHighlight(targetBtn) {
       if (!targetBtn) return;
@@ -686,10 +681,6 @@
     function updateBufferProgress() {
       if (video.duration > 0 && video.buffered.length > 0) {
         const bufferedEnd = video.buffered.end(video.buffered.length - 1);
-        const percent = Math.min((bufferedEnd / video.duration) * 100, 100);
-        if (progressBarFill) {
-          progressBarFill.style.width = `${percent}%`;
-        }
       }
     }
 
@@ -702,7 +693,6 @@
     video.addEventListener('waiting', () => loader.classList.remove('hidden'));
     video.addEventListener('loadstart', () => {
       loader.classList.remove('hidden');
-      if (progressBarFill) progressBarFill.style.width = '0%';
     });
   </script>
 </body>
