@@ -479,18 +479,17 @@ box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
 backdrop-filter: blur(12px);
 margin: 8rem auto;
 width: 70%;
+font-size: 1.2rem;
 }
 /* Magazine Story Container */
 .about-story-container {
-column-count: 2;
-column-gap: 2.5rem;
-column-rule: 1px solid rgba(255, 255, 255, 0.08); /* Soft line between columns */
-font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-font-size: 0.95rem;
-line-height: 1.8;
-color: whitesmoke;
+font-family: 'Plus Jakarta Sans', sans-serif;
+line-height: 2.2;
+color: #D1D5DB;
 text-align: justify;
-margin-top: 2rem;
+width: 70%;
+margin: 2rem auto;
+letter-spacing: 0.05rem;
 }
 
 .about-story-container p {
@@ -498,19 +497,8 @@ margin-bottom: 1.25rem;
 break-inside: avoid;
 }
 
-/* Featured Lead Paragraph */
-.about-story-container .story-lead {
-font-size: 1.05rem;
-font-weight: 500;
-color: #ffffff;
-border-left: 2px solid var(--accent-blue);
-padding-left: 1rem;
-margin-bottom: 1.5rem;
-}
-
 /* Bold Game Titles Highlight */
 .about-story-container strong {
-color: #ffffff;
 font-weight: 600;
 }
 
