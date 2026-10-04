@@ -536,7 +536,7 @@ text-align: center;
 color: darkgray; 
 font-family: 'Fira Code', monospace; 
 margin-bottom: 1.5rem; 
-font-size: 0.9rem;
+font-size: 1rem;
 }
 
 .about-description {
@@ -1055,18 +1055,15 @@ margin: 3rem auto;
 }
 
 .about-story-container {
+width: 95%;
 column-count: 1; /* Collapse to 1 readable column on mobile */
 column-gap: 0;
 column-rule: none;
-font-size: 0.92rem;
+font-size: 1.2rem;
 }
 
 .about-description {
 margin: 0;
-}
-
-.about-story-container .story-lead{
-padding: 0 0.5rem;
 }
 
 .game-section {
